@@ -1,0 +1,422 @@
+/* Student.css */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Sarabun:wght@400;500;700&display=swap");
+
+:root {
+  --primary: #e94057; /* สีชมพูหลัก */
+  --text-dark: #1f2937; /* สีดำเทา (อ่านง่าย) */
+  --text-gray: #6b7280; /* สีเทาสำหรับคำอธิบาย */
+  --bg-light: #f3f4f6; /* สีพื้นหลังจอ */
+  --card-bg: #ffffff;
+}
+
+* {
+  box-sizing: border-box; /* ป้องกันไม่ให้ Padding ดันกล่องจนเพี้ยน */
+}
+
+body {
+  font-family: "Poppins", "Sarabun", sans-serif;
+  background-color: var(--bg-light);
+  color: var(--text-dark);
+  margin: 0;
+  line-height: 1.6;
+}
+
+/* --- Hero Section (หน้าแรก) --- */
+.hero-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.hero-card {
+  background: white;
+  width: 100%;
+  max-width: 1000px;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08); /* เงาฟุ้งๆ นุ่มๆ */
+  overflow: hidden;
+  display: flex;
+  flex-direction: row; /* จัดเรียงซ้ายขวา */
+}
+
+/* ฝั่งซ้าย: รูปภาพ */
+.hero-image-col {
+  flex: 1;
+  background-color: #fff0f3; /* พื้นหลังสีชมพูอ่อนหลังรูป */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  position: relative;
+}
+
+.hero-img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(233, 64, 87, 0.2);
+  z-index: 2;
+  position: relative;
+}
+
+/* ตกแต่ง Blob หลังรูป (แบบ Fix ตำแหน่ง ไม่ให้บังรูป) */
+.hero-blob {
+  position: absolute;
+  width: 250px;
+  height: 250px;
+  background: var(--primary);
+  border-radius: 50%;
+  opacity: 0.1;
+  z-index: 1;
+}
+.blob-1 {
+  top: 20px;
+  left: 20px;
+}
+.blob-2 {
+  bottom: 20px;
+  right: 20px;
+}
+
+/* ฝั่งขวา: เนื้อหา */
+.hero-content-col {
+  flex: 1.2;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.badge-role {
+  display: inline-block;
+  background: #fff0f3;
+  color: var(--primary);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 20px;
+  align-self: flex-start;
+}
+
+.hero-title {
+  font-size: 3rem;
+  line-height: 1.2;
+  margin: 0 0 15px 0;
+  color: var(--text-dark);
+}
+.hero-title span {
+  color: var(--primary);
+}
+
+.hero-desc {
+  color: var(--text-gray);
+  margin-bottom: 30px;
+  font-size: 1.1rem;
+}
+
+/* Grid ข้อมูล 4 ช่องหน้าแรก (จัดระเบียบใหม่) */
+.info-grid-simple {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-bottom: 30px;
+}
+
+.info-box-simple {
+  display: flex;
+  flex-direction: column;
+  border-left: 3px solid var(--primary);
+  padding-left: 15px;
+}
+
+.info-box-label {
+  font-size: 0.8rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.info-box-value {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-dark);
+}
+
+.btn-main {
+  background: var(--primary);
+  color: white;
+  border: none;
+  padding: 16px 32px;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s;
+  align-self: flex-start;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.btn-main:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(233, 64, 87, 0.3);
+}
+
+/* --- Modal (Popup) --- */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.5); /* พื้นหลังดำจางๆ */
+  z-index: 9999; /* อยู่บนสุดเสมอ */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  backdrop-filter: blur(4px);
+}
+
+.modal-card {
+  background: white;
+  width: 100%;
+  max-width: 800px;
+  max-height: 90vh; /* ไม่ให้สูงเกินจอ */
+  border-radius: 20px;
+  overflow-y: auto; /* ให้ scroll ได้ถ้าเนื้อหาเยอะ */
+  position: relative;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header สีชมพู */
+.modal-header-pink {
+  height: 140px;
+  background-color: var(--primary);
+  /* ลายจุด Dot Pattern */
+  background-image: radial-gradient(
+    rgba(255, 255, 255, 0.3) 2px,
+    transparent 2px
+  );
+  background-size: 20px 20px;
+  position: relative;
+  flex-shrink: 0; /* ห้ามหด */
+}
+
+.btn-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: white;
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: var(--primary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  transition: 0.2s;
+}
+.btn-close:hover {
+  transform: scale(1.1);
+}
+
+/* เนื้อหาใน Modal */
+.modal-content-body {
+  padding: 0 40px 40px 40px;
+  position: relative;
+}
+
+/* รูปโปรไฟล์วงกลม */
+.profile-circle {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  border: 5px solid white;
+  margin-top: -65px; /* ดึงขึ้นไปทับ Header */
+  object-fit: cover;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 15px;
+}
+
+.user-title h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  color: var(--text-dark);
+}
+.user-title p {
+  margin: 5px 0 20px;
+  color: var(--text-gray);
+  font-size: 1rem;
+}
+
+/* Grid การ์ดข้อมูล (Contact / Education) */
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.detail-card {
+  background: #fafafa;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 20px;
+  border-left: 4px solid var(--primary); /* แถบสีด้านซ้าย */
+}
+
+.detail-title {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-bottom: 15px;
+}
+
+.detail-row {
+  margin-bottom: 12px;
+}
+.detail-label {
+  display: block;
+  font-size: 0.85rem;
+  color: #999;
+}
+.detail-val {
+  display: block;
+  font-size: 1rem;
+  font-weight: 500;
+  color: #333;
+}
+
+/* Section อื่นๆ */
+.section-head {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--text-dark);
+  margin-top: 30px;
+  margin-bottom: 15px;
+  border-bottom: 2px solid #f3f4f6;
+  padding-bottom: 10px;
+}
+
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.tag-pill {
+  background: #fff0f3;
+  color: var(--primary);
+  padding: 8px 16px;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  border: 1px solid rgba(233, 64, 87, 0.2);
+}
+
+/* Responsive มือถือ */
+@media (max-width: 900px) {
+  .hero-card {
+    flex-direction: column;
+  }
+  .hero-image-col {
+    padding: 30px;
+    background: #fff0f3;
+  }
+  .hero-img {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+  } /* มือถือรูปกลม */
+  .hero-content-col {
+    padding: 30px;
+    text-align: center;
+  }
+  .hero-title {
+    font-size: 2rem;
+  }
+  .info-grid-simple {
+    text-align: left;
+  }
+  .details-grid {
+    grid-template-columns: 1fr;
+  }
+  .btn-main {
+    align-self: center;
+  }
+}
+
+/* --- Student.css (ส่วนท้ายไฟล์) --- */
+
+/* Container สำหรับเก็บลูกโป่ง (ให้อยู่ภายใน Modal Overlay) */
+.balloon-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* ซ่อนลูกโป่งที่ลอยเลยขอบจอ */
+  pointer-events: none; /* สำคัญ! ทำให้คลิกทะลุได้ ไม่บังการกดปุ่มปิด */
+  z-index: 1001; /* อยู่หลัง Modal Card แต่อยู่หน้า Overlay พื้นหลัง */
+}
+
+/* รูปทรงลูกโป่ง */
+.balloon {
+  position: absolute;
+  bottom: -100px; /* เริ่มต้นที่ใต้จอ */
+  width: 50px;
+  height: 65px;
+  background-color: var(--primary); /* สีชมพูหลัก */
+  border-radius: 50% 50% 50% 50% / 40% 40% 60% 60%; /* ทรงหยดน้ำ */
+  box-shadow: inset -5px -5px 0 rgba(0, 0, 0, 0.07); /* เงาด้านในให้ดูมีมิติ */
+  animation: floatUpBalloon linear forwards; /* Animation ลอยขึ้น */
+}
+
+/* เชือกห้อยลูกโป่ง */
+.balloon::before {
+  content: "";
+  position: absolute;
+  bottom: -15px;
+  left: 50%;
+  width: 2px;
+  height: 25px;
+  background: rgba(255, 255, 255, 0.5);
+  transform: translateX(-50%);
+}
+
+/* สีลูกโป่งที่แตกต่างกัน (สุ่มใช้) */
+.b-pink {
+  background-color: var(--primary);
+}
+.b-light {
+  background-color: #ffc0cb; /* ชมพูอ่อน */
+}
+.b-white {
+  background-color: #ffffff;
+  opacity: 0.9;
+}
+
+/* Animation การลอย */
+@keyframes floatUpBalloon {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.9;
+  }
+  100% {
+    transform: translateY(-120vh) rotate(20deg); /* ลอยทะลุจอไปด้านบน */
+    opacity: 0; /* ค่อยๆ จางหายไป */
+  }
+}
