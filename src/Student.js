@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Data_user from "../config/Data_user";
+import Data_user from "./config/Data_user";
 import "./Student.css";
 
 function Student() {

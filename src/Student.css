@@ -324,6 +324,91 @@ body {
   border: 1px solid rgba(233, 64, 87, 0.2);
 }
 
+/* --- ส่วนที่เพิ่มใหม่สำหรับระบบ Router --- */
+
+/* Navbar Navigation */
+.navbar-container {
+  background: white;
+  padding: 15px 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  gap: 30px;
+}
+
+.nav-link {
+  text-decoration: none;
+  color: var(--text-gray);
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 8px 16px;
+  border-radius: 50px;
+  transition: all 0.3s ease;
+}
+
+.nav-link:hover {
+  color: var(--primary);
+  background-color: #fff0f3;
+}
+
+.nav-link.active {
+  color: white;
+  background-color: var(--primary);
+  box-shadow: 0 4px 10px rgba(233, 64, 87, 0.3);
+}
+
+/* Page Layout สำหรับหน้าอื่นๆ */
+.page-container {
+  min-height: calc(100vh - 70px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.page-card {
+  background: white;
+  width: 100%;
+  max-width: 800px;
+  border-radius: 24px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  padding: 50px;
+  animation: slideUp 0.4s ease-out forwards;
+}
+
+.page-title {
+  font-size: 2rem;
+  color: var(--text-dark);
+  margin-bottom: 30px;
+  border-bottom: 2px solid #f3f4f6;
+  padding-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+/* 404 Page Styling */
+.not-found-wrapper {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.error-code {
+  font-size: 8rem;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1;
+  margin-bottom: 10px;
+  text-shadow: 4px 4px 0px #fff0f3;
+}
+
 /* Responsive มือถือ */
 @media (max-width: 900px) {
   .hero-card {

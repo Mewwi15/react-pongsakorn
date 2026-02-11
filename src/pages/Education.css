@@ -1,0 +1,257 @@
+/* src/pages/Education.css */
+
+.edu-page-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    padding: 120px 20px 60px 20px;
+    background-color: var(--bg-light, #F3F4F6);
+}
+
+.education-content {
+    width: 100%;
+    max-width: 900px;
+}
+
+.edu-page-title {
+    font-size: 2.2rem;
+    color: var(--text-dark, #1F2937);
+    margin-bottom: 40px;
+    border-bottom: 2px solid #E5E7EB;
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-weight: 700;
+}
+
+/* --- Timeline Layout --- */
+.timeline-container {
+    position: relative;
+    padding-left: 40px;
+}
+
+.timeline-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 15px;
+    width: 2px;
+    background: #E5E7EB;
+    border-radius: 2px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-dot {
+    position: absolute;
+    left: -31px;
+    top: 30px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--primary, #e94057);
+    box-shadow: 0 0 0 4px #F3F4F6;
+    z-index: 2;
+}
+
+.timeline-card {
+    background: white;
+    border: 1px solid #E5E7EB;
+    border-radius: 24px;
+    padding: 30px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.03);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.timeline-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.06);
+    border-color: rgba(233, 64, 87, 0.3);
+}
+
+/* --- Card Header & Logo --- */
+.timeline-header {
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+}
+
+.school-logo-box {
+    width: 80px;
+    height: 80px;
+    background: #F9FAFB;
+    border: 1px solid #F3F4F6;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    overflow: hidden;
+    padding: 10px;
+}
+
+.school-logo-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.school-logo-box i {
+    font-size: 2.5rem;
+    color: var(--text-gray, #6b7280);
+}
+
+.school-info {
+    flex: 1;
+}
+
+.school-title-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 10px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+/* --- ส่วนชื่อโรงเรียน และ ปุ่มลิงก์ --- */
+.school-name-wrapper {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.school-name {
+    font-size: 1.3rem;
+    font-weight: 700;
+    color: var(--text-dark, #1f2937);
+    margin: 0;
+}
+
+/* สไตล์ปุ่มลิงก์สีชมพูแบบเห็นชัดๆ */
+.school-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background-color: #FFF0F3;
+    color: var(--primary, #E94057);
+    padding: 4px 12px;
+    border-radius: 50px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(233, 64, 87, 0.2);
+}
+
+.school-link-btn:hover {
+    background-color: var(--primary, #E94057);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(233, 64, 87, 0.2);
+}
+
+/* --- Badge & Text --- */
+.school-badge {
+    background: #374151;
+    color: white;
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+.school-desc {
+    color: var(--text-gray, #6b7280);
+    font-size: 1rem;
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* --- Tags & Highlights --- */
+.timeline-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.edu-tag {
+    background: #F3F4F6;
+    color: var(--text-dark, #1f2937);
+    border: 1px solid #E5E7EB;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    transition: 0.2s;
+}
+
+.timeline-card:hover .edu-tag {
+    background: #FFF0F3;
+    color: var(--primary, #e94057);
+    border-color: rgba(233, 64, 87, 0.2);
+}
+
+.timeline-highlights {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.timeline-highlights li {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    color: var(--text-dark, #1f2937);
+    font-size: 0.95rem;
+    margin-bottom: 10px;
+}
+
+.timeline-highlights li i {
+    color: var(--primary, #e94057);
+    font-size: 1.2rem;
+    margin-top: 2px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .edu-page-container {
+        padding: 100px 15px 40px 15px;
+    }
+
+    .timeline-container {
+        padding-left: 20px;
+    }
+
+    .timeline-container::before {
+        left: 5px;
+    }
+
+    .timeline-dot {
+        left: -21px;
+        width: 14px;
+        height: 14px;
+        top: 25px;
+    }
+
+    .timeline-header {
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .school-logo-box {
+        width: 60px;
+        height: 60px;
+    }
+}

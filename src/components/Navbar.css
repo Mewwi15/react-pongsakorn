@@ -1,0 +1,52 @@
+/* src/components/Navbar.css */
+.navbar-floating {
+  position: fixed;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 8px 12px;
+  border-radius: 50px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  display: flex;
+  gap: 5px;
+  z-index: 9999;
+  transition: all 0.3s ease;
+}
+
+.nav-item-modern {
+  text-decoration: none;
+  color: var(--text-gray);
+  font-weight: 500;
+  font-size: 0.95rem;
+  padding: 10px 24px;
+  border-radius: 50px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-item-modern i { font-size: 1.1rem; }
+
+.nav-item-modern:hover {
+  color: var(--primary);
+  background: #FFF0F3;
+}
+
+.nav-item-modern.active {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 4px 15px rgba(233, 64, 87, 0.3);
+  font-weight: 600;
+}
+
+@media (max-width: 600px) {
+  .navbar-floating { width: 90%; top: 20px; justify-content: space-between; }
+  .nav-item-modern { padding: 10px 15px; font-size: 0; gap: 0; }
+  .nav-item-modern i { font-size: 1.3rem; margin: 0; }
+  .nav-item-modern.active { padding: 10px 25px; }
+}
